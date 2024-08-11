@@ -19,7 +19,6 @@ const AdminNavbar = ({ toggleSidebar }) => {
             <img src='/12.jpg' alt="Profile" className="profile-icon" />
           </button>
           <div className="dropdown-content">
-            <Link to="/profile">Profile</Link>
             <Link to="/admin/login">Logout</Link>
           </div>
         </div>

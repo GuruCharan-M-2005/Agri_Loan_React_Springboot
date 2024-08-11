@@ -31,7 +31,8 @@
 
 
 .dashboard-left .illustration {
-  display: flex;
+  display: grid;
+  height: auto;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -149,6 +150,33 @@
 
 
 
+.charts-container {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  /* flex-wrap: wrap; */
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.chart {
+  flex: 1;
+  width:20vw ;
+  height: 30vh;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
+
+
 @media (max-width: 768px) {
   .dashboard-container{
     height: 100%;
@@ -203,3 +231,4 @@
       padding: 8px;
   }
 }
+

@@ -28,16 +28,16 @@ const Contact = () => {
 
     emailjs
       .send(
-        'service_bfq0gp1',
-        'template_o5gounm',
+        'service_iukbl7q',
+        'template_ztqh62q',
         {
           from_name: form.name,
-          to_name: 'Badhmasharan',
+          to_name: 'Gurucharan',
           from_email: form.email,
-          to_email: '727722eucs027@skcet.ac.in',
+          to_email: 'gurumrd005@gmail.com',
           message: form.message,
         },
-        'uJpOHpsKkfwV-VckQ'
+        'qs4c_xcuucDlfcUuf'
       )
       .then(
         () => {

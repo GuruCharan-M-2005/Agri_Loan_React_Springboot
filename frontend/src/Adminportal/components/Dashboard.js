@@ -4,6 +4,10 @@ import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import './Dashboard.css'; 
 import AdminNavbar from './AdminNavbar';
+import HistogramChart from './charts/HistogramChart';
+import BarChart from './charts/BarChart';
+import PieChart from './charts/PieChart';
+import LinePlot from './charts/LinePlot';
 
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
@@ -81,11 +85,22 @@ const Dashboard = () => {
               <h1>Welcome to the Loan Dashboard</h1>
               <p>Here is an overview of your loan statistics.</p>
             </div>
-            <div className='report-creation'>
-              <button className="primary-btn">Create Report</button>
-            </div>
             <div className="illustration">
-              <img src="/banner.png" alt="Dashboard Illustration" />
+            <div className="charts-container">
+  <div className="chart">
+    <HistogramChart /> 
+  </div>
+  <div className="chart">
+    <BarChart /> 
+  </div>
+  <div className="chart">
+    <PieChart /> 
+  </div>
+  <div className="chart">
+    <LinePlot />
+  </div>
+</div>
+
             </div>
           </div>
           <div className="dashboard-right">
@@ -107,44 +122,7 @@ const Dashboard = () => {
             </div>
             </div>
             </div>
-            <div className="dashboard-chart">
-              <h2>Loan Types Overview</h2>
-              {chartData.labels.length > 0 && (
-                <Bar
-                  data={chartData}
-                  options={{
-                    responsive: true,
-                    plugins: {
-                      legend: {
-                        position: 'top',
-                      },
-                      tooltip: {
-                        callbacks: {
-                          label: function (tooltipItem) {
-                            return `${tooltipItem.label}: ${tooltipItem.raw}`;
-                          },
-                        },
-                      },
-                    },
-                    scales: {
-                      x: {
-                        title: {
-                          display: true,
-                          text: 'Loan Type'
-                        }
-                      },
-                      y: {
-                        title: {
-                          display: true,
-                          text: 'Number of Applications'
-                        },
-                        beginAtZero: true
-                      }
-                    }
-                  }}
-                />
-              )}
-            </div>
+          
           
       
       </div>
