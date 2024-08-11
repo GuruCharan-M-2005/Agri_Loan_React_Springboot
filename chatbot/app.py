@@ -7,18 +7,15 @@ from sklearn.feature_extraction.text import CountVectorizer
 import nltk
 from nltk.corpus import stopwords
 
-# Ensure NLTK stopwords are downloaded
 nltk.download('stopwords')
 nltk.download('punkt')
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-# Load the model and CountVectorizer
 model = load_model('chatbot/deep_learning_model.h5')
 vectorizer = joblib.load('chatbot/vectorizer.pkl')
 
-# Define responses
 responses = {
     0: "To apply for an agricultural loan, visit our website or contact your local bank.",
     1: "Eligibility criteria include having a stable income and owning agricultural land.",
@@ -41,29 +38,24 @@ def chat():
     if not user_input:
         return jsonify({'response': "Sorry, I didn't understand your question."})
     
-    # Preprocess and vectorize user input
     processed_input = preprocess(user_input)
     
     if not processed_input.strip():
         return jsonify({'response': "Sorry, I didn't understand your question."})
     
-    # Transform text using CountVectorizer
     try:
         input_vector = vectorizer.transform([processed_input])
     except Exception as e:
         return jsonify({'response': f"Error in vectorizing input: {e}"})
-    
-    # Ensure the input_vector is in the right shape
+
     input_vector = input_vector.toarray()
-    
-    # Predict the category
+
     try:
         prediction = model.predict(input_vector)
         predicted_category = np.argmax(prediction, axis=1)[0]
     except Exception as e:
         return jsonify({'response': f"Error in model prediction: {e}"})
     
-    # Provide the response based on prediction
     response_message = responses.get(predicted_category, "Sorry, I didn't understand your question.")
     
     return jsonify({'response': response_message})
