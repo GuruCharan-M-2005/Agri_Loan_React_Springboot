@@ -12,11 +12,11 @@ const RepaymentTracking = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:4000/applications?status=Approved') 
+    fetch('http://localhost:8080/data/getall') 
       .then(response => response.json())
       .then(data => {
         console.log('Fetched data:', data); 
-        const approvedLoans = data.filter(loan => loan.status === 'Approved');
+        const approvedLoans = data.filter(loan => loan.loanStatus === 'Approved');
         setLoans(approvedLoans);
       })
       .catch(error => {
@@ -76,12 +76,12 @@ const RepaymentTracking = () => {
                   
                   const loanAmount = parseFloat(loan.loanAmount);
                   return (
-                    <tr key={loan.id}>
-                      <td>{loan.id}</td>
+                    <tr key={loan.dataId}>
+                      <td>{loan.dataId}</td>
                       <td>{loan.firstName}</td>
                       <td>₹{loanAmount.toFixed(2)}</td>
                       <td>
-                        <button className="view-schedule-button" onClick={() => handleViewSchedule(loan.repaymentSchedule)}>View Schedule</button>
+                        <button className="view-schedule-button" onClick={() => handleViewSchedule(loan.repaymentModels)}>View Schedule</button>
                       </td>
                     </tr>
                   );

@@ -240,7 +240,7 @@ const LoanApplicationForm = () => {
         navigate('/my-applications');
         setShowAnimation(false);
         
-      }, 4000);
+      }, 1000);
   
       setFormData({
         loanAmount: '',
@@ -668,10 +668,10 @@ const LoanApplicationForm = () => {
         </div>
       )}
 
-{loading && <SubmissionAnimationPage />} 
-{showSuccessImage && <SubmissionAnimationPage />} 
+{/* {loading && <SubmissionAnimationPage />} 
+{showSuccessImage && <SubmissionAnimationPage />}  */}
     </div>
-    <Footer/>
+    {/* <Footer/> */}
     </div>
   );
 };

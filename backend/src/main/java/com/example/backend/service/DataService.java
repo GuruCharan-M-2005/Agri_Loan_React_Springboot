@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.backend.model.DataModel;
+import com.example.backend.model.RepaymentModel;
 import com.example.backend.model.UserModel;
 import com.example.backend.repository.DataRepo;
 import com.example.backend.repository.UserRepo;
@@ -39,6 +40,13 @@ public class DataService {
             .orElseThrow(() -> new Error("User not found"));
             dataModel.setUser(user);
             return dataRepo.save(dataModel);
+
+    }
+
+    public DataModel repaymentUpdate(int id, List<RepaymentModel> data) {
+            DataModel newdata = getDataById(id);
+            newdata.setRepaymentModels(data);
+            return dataRepo.save(newdata);
 
     }
 

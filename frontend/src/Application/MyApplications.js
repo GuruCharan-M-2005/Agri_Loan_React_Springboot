@@ -37,8 +37,8 @@ const MyApplications = () => {
           throw new Error('Network response was not ok.');
         }
         // setApplications(applications.filter(app => app.id !== id));
-        
-      }, 100);
+        fetchLoggedInUserId();
+      }, 1000);
     } catch (error) {
       console.error('Error deleting application:', error);
     }
@@ -115,7 +115,7 @@ const MyApplications = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

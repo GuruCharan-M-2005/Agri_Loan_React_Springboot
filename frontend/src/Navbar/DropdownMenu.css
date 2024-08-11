@@ -99,22 +99,3 @@
   .user button:hover{
     transform: scale(1.1);
   }
-  
-
-  @media only screen and (max-width: 908px) {
-    .dropdown-menu {
-      position: absolute;
-      top:70px;
-      right: 8vw;
-      width: 210px;
-      background-color: rgb(255, 255, 255);
-      backdrop-filter: blur(10px);
-      border: none;
-      border-radius: 10px;
-      padding: 8px;
-      box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.279);
-      z-index: 1000; 
-      
-    }
-  }
-  

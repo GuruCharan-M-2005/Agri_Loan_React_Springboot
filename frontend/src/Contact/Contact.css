@@ -7,6 +7,8 @@
   margin-left: 10%;
   margin-top: 20px;
  margin-bottom: 20px;
+ background-color: #0dfc0014;
+ border-radius: 40px;
   margin-right: 10%;
   overflow: hidden;
 }
@@ -24,11 +26,11 @@
   margin-right: 5%;
  transition: transforms 3s smooth;
 }
-.contact-form-section:hover{
+/* .contact-form-section:hover{
   transform: scale(1.02);
-}
+} */
 .contact-subtext {
-  color: #f39c12; 
+  color: #037509; 
   font-size: 1.2rem;
   margin-top: 5px;
   font-family: 'Poppins';
@@ -63,7 +65,7 @@
 .contact-form-input,
 .contact-form-textarea {
   font-family: 'Poppins';
-  background-color: #ffe1c578; 
+  background-color: #cdfbc790; 
   color: #ffffff;
   border: 1px solid #c6c6c6; 
   padding: 10px;
@@ -77,19 +79,20 @@
 }
 
 .contact-form-button {
-  background-color: #f36112; 
+  background-color: #21e62ef0; 
   color: #ffffff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  font-size: 20px;
   width: 100%;
   transition: background-color 0.3s ease;
 }
 
 .contact-form-button:hover {
-  background-color: #e65d22; 
+  background-color: #09a919; 
 }
 
 

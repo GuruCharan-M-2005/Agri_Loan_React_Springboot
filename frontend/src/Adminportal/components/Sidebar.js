@@ -17,9 +17,9 @@ const Sidebar = () => {
 
   return (
     <aside className={`sidebar-container ${isOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-      <button className="sidebar-toggle-btn" onClick={toggleSidebar}>
+      {/* <button className="sidebar-toggle-btn" onClick={toggleSidebar}>
         {isOpen ? '←' : '→'}
-      </button>
+      </button> */}
       <nav className="sidebar-nav">
         <div className={`admin-brand-title ${isOpen ? 'brand-title-open' : 'brand-title-closed'}`} onClick={handleadminhome}>
           <img className="icon-plant" src="/plant.svg" alt="Crop Credit" />

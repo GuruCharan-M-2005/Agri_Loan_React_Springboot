@@ -6,12 +6,6 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="waves">
-        <div className="wave" id="wave1"></div>
-        <div className="wave" id="wave2"></div>
-        <div className="wave" id="wave3"></div>
-        <div className="wave" id="wave4"></div>
-      </div>
       <div className="footer-container">
         <div className="footer-section">
           <p className="title-card-footer">
@@ -56,19 +50,7 @@ const Footer = () => {
             <FaYoutube />
             <FaLinkedinIn />
           </div>
-          <div>
-            <h3 className="footer-heading">Visit Our App</h3>
-            <img src="/path-to-qr-code.png" alt="QR Code" className="footer-qr-code" />
-          </div>
         </div>
-      </div>
-      <div className="footer-bottom">
-        <div className="footer-links">
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/terms-and-conditions">Terms and Conditions</a>
-          <a href="/disclaimer">Disclaimer</a>
-        </div>
-        <p className="footer-copyright">© 2018-2024 Online CropCredit. All Rights Reserved</p>
       </div>
     </footer>
   );

@@ -6,8 +6,8 @@
     justify-content: space-between;
     align-items: center;
     color: white;
-    width: calc(100% - 8.4vw); 
-    left: 14vw; 
+    /* width: calc(100% - 8.4vw);  */
+    /* left: 14vw;  */
     z-index: 0; 
     font-family: 'Poppins', sans-serif;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -28,7 +28,7 @@
     font-weight: bold;
     color: white;
     text-decoration: none;
-    margin-left: 0vw;
+    margin-left: -80%;
   }
   .sidebar-open.brand-title{
     margin-left: 50vw;

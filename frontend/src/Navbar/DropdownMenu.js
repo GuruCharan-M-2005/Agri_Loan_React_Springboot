@@ -62,8 +62,8 @@ const DropdownMenu = ({ isLoggedIn, handleLogin, handleLogout }) => {
           <div className="drop-option">
             <div className="line"></div>
             <div><button className="drop-buttons" onClick={handleMyApplications}><Send className="dropdown-icon" /> My Applications</button></div>
-            <div><button className="drop-buttons"><Activity className="dropdown-icon" /> Loan Tracker</button></div>
-            <div><button className="drop-buttons"><Info className="dropdown-icon" /> Help</button></div>
+            {/* <div><button className="drop-buttons"><Activity className="dropdown-icon" /> Loan Tracker</button></div>
+            <div><button className="drop-buttons"><Info className="dropdown-icon" /> Help</button></div> */}
             <div className="line"></div>
           </div>
           <div className="logout-function">

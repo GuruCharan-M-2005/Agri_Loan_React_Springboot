@@ -3,6 +3,8 @@ package com.example.backend.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 
 @Entity
@@ -49,5 +51,9 @@ public class DataModel {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserModel user;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "data_id")
+    private List<RepaymentModel> repaymentModels;
     
 }

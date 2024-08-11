@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.backend.model.DataModel;
+import com.example.backend.model.RepaymentModel;
 import com.example.backend.service.DataService;
 
 @RestController
@@ -53,6 +54,11 @@ public class DataController {
         return dataService.postAllData(data);
     }
 
+    @PostMapping("/postPayment/{id}")
+    public DataModel postRepayment(@PathVariable int id,@RequestBody List<RepaymentModel> data) {
+        return dataService.repaymentUpdate(id,data);
+    }
+
 
     @DeleteMapping("/{dataId}")
     public ResponseEntity<String> deleteData(@PathVariable int dataId) {
@@ -72,5 +78,21 @@ public class DataController {
     //     DataModel editedUser = dataService.editDataPayment(dataId, schedule);
     //     return ResponseEntity.ok(editedUser);
     // }
+
+    @PostMapping("/chatbot/message")
+    public String getResponse(@RequestBody String message) {
+
+        String lowerMessage = message.toLowerCase();
+
+        if (lowerMessage.contains("hi") || lowerMessage.contains("hello")) {
+            return "Hi, How can I help you?";
+        } else if (lowerMessage.contains("loan")) {
+            return "We offer various agricultural loans. How can I assist you today?";
+        } else if (lowerMessage.contains("apply") ) {
+            return "To apply for an agricultural loan, please provide your details such as income, loan amount, etc.";
+        } else {
+            return "I'm not sure how to help with that. Can you please provide more details?";
+        }
+    }
 
 }

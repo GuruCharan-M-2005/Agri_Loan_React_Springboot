@@ -8,11 +8,11 @@
    padding-bottom: 15px;
     padding-left: 5vw;
     padding-right: 5vw;
-    position:static;
+    position:fixed;
     width: 100%;
     position: fixed;
     z-index: +4;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(10px);
 }
 
 .main-button {
@@ -20,7 +20,7 @@
     font-size: 20px;
     font-family: 'Poppins';
     background: none;
-    color: rgb(130, 66, 14);
+    color: rgb(73, 36, 5);
     font-weight: lighter;
     margin-left: 30px;
     cursor: pointer;
@@ -37,7 +37,7 @@
     font-size: 20px;
     font-family: 'Poppins';
     background: none;
-    color: rgb(255, 70, 3);
+    color: rgba(21, 174, 1, 0.804);
     font-weight: bolder;
     margin-left: 30px;
     align-items: center;
@@ -85,11 +85,12 @@
     width: 140px;
     border: none;
     background-color: white;
+    border-radius: 10px;
     cursor: pointer;
     margin-right: 12vw;
     margin-top: 10px;
     margin-bottom: 10px;
-    color:rgb(255, 115, 8);
+    color:rgb(24, 179, 0);
     font-weight: bolder;
     font-family: 'Poppins';
     font-size: 15px;
@@ -110,33 +111,4 @@
 .icon-plant{
     height: 30px;
     width: 40px;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-    .main-button{
-        display: none;
-    }
-    .title-bar{
-        margin-left: -5vw;
-    }
-    .sub-bar .sign-button{
-        margin-left: 2px;
-    }
-    .sub-bar{
-        margin-left: 10px;
-    }
-    .Nav-bar .main-button1{
-        margin-left: 3vw;
-    }
-    .Nav-bar{
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-button{
-        display: none;
-    }
-   
 }

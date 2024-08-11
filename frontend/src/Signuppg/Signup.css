@@ -36,8 +36,6 @@
     width: 100%;
     max-width: 420px;
     min-width: 27vw;
-    /* margin-left: 10%;
-    margin-right:10% ; */
     background: transparent;
     z-index: +1;
     background-position:center;
@@ -63,7 +61,7 @@
 }
 .wrapper1 .input-boxx{
     border: 2px solid rgba(128, 128, 128, 0.385);
-    border-radius: 40px;
+    border-radius: 10px;
     height:50px;
     align-items: center;
     margin-top: 10px;
@@ -94,7 +92,7 @@
 }
 .wrapper1 .input-boxx1{
     border: 2px solid rgba(128, 128, 128, 0.385);
-    border-radius: 40px;
+    border-radius: 10px;
     height:50px;
     align-items: center;
     margin-top: 10px;
@@ -126,7 +124,7 @@
 
 .wrapper1 .input-boxx2{
     border: 2px solid rgba(128, 128, 128, 0.385);
-    border-radius: 40px;
+    border-radius: 10px;
     height:50px;
     align-items: center;
     margin-top: 10px;
@@ -158,7 +156,7 @@
 
 .wrapper1 .input-boxx3{
     border: 2px solid rgba(128, 128, 128, 0.385);
-    border-radius: 40px;
+    border-radius: 10px;
     height:50px;
     align-items: center;
     margin-top: 10px;
@@ -202,7 +200,7 @@
     background:#157368;
     border: none;
     outline: none;
-    border-radius: 40px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     color: rgb(255, 255, 255);
@@ -212,33 +210,39 @@
     box-shadow: 0 0 10px rgba(170, 255, 237, 0.305)
 }
 
-
-
-@media only screen and (max-width: 768px) {
+.register-link{
+    font-size: 14.5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
     
-    .lady{
-        display: none;
-    }
-    
-  }
+}
 
-@media only screen and (min-width: 909px) {
-  
-    
-  }
+.register-link p{
+    margin-right: 10px;
+    color: black;
+    font-weight:600;
+}
+.register-link a {
+    position: relative;
+    color: rgb(22, 22, 237);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
 
+.register-link a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: rgb(22, 22, 237);
+    transition: width 0.3s ease; 
+}
 
-
-@media only screen and (max-width: 908px) {
-   
-    .login-nav{
-        display: grid;
-    }
-    .login-nav p{
-        margin-left: 15px;
-        font-family: 'Poppins';
-        font-weight: 600;
-    }
-    
-  }
-  
+.register-link a:hover::after {
+    width: 100%; 
+}

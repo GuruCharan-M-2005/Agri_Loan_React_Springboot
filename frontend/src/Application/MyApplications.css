@@ -1,8 +1,8 @@
 /* Container for the whole page */
 .my-applications {
   font-family: 'Poppins';
-background: #38A44D;
-background: radial-gradient(at center top, #38A44D, #0B091B);
+background: #38a44e;
+background: radial-gradient(at center top, #136924e6, #022207);
   color: #eee;
   background-size: contain;
   background-repeat: no-repeat;

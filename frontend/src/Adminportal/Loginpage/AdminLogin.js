@@ -71,7 +71,7 @@ const AdminLogin = () => {
     //   .then((res) => {
     //     if (res.data.length > 0) {
     if(email==='admin@gmail.com' && password==='admin'){
-          navigate("/admin/home");
+          navigate("/admin/dashboard");
     // }
         } else {
           alert("User account doesn't exist");
@@ -121,11 +121,7 @@ const AdminLogin = () => {
             </button>
           </div>
         </div>
-        <div className='admin-switch'>
-        <button onClick={handleuserLogin} className='admin-switch-button'>
-        Switch to User Login
-          </button>
-        </div>
+       
         <div className='wrapper-container'>
           <div className="wrapper">
             <form action="" className='form-class'>
@@ -176,11 +172,17 @@ const AdminLogin = () => {
               {/* <div className="register-link">
                 <p>Don't have an account?</p> <a onClick={handlesignup}>Register</a>
               </div> */}
+              <br></br><br></br>
+               <div className='admin-switch'>
+                  <button onClick={handleuserLogin} className='admin-switch-button'>
+                      <a>Switch to User Login</a>
+                    </button>
+                </div>
             </form>
           </div>
         </div>
       </div>
-      <img src='/working lady.png' className='lady' alt='working lady'></img>
+      {/* <img src='/working lady.png' className='lady' alt='working lady'></img> */}
     </div>
   );
 };

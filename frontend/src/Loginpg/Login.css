@@ -1,5 +1,5 @@
  .loginnn {
-    background-image: url("C:\Users\gurum\Desktop\App_Development_IRC\agri_loan\public\hero.png"); /* Ensure this image path is correct and points to your public folder */
+    background-image: url("C:\Users\gurum\Desktop\App_Development_IRC\agri_loan\public\hero.png"); 
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 100%;
@@ -27,19 +27,13 @@
     font-size: 10px;
     font-family: 'Poppins';
     background: none;
-    color: rgb(255, 70, 3);
+    color: rgb(62, 221, 38);
     font-weight: bolder;
     display: flex;
 }
-.pop-up-man{
-    position: relative;
-    z-index:-10;
-    width: 190px;
-    left: -60px;
-    top: -63px;
-}
 
 .login-container {
+    margin-left: -30%;
     display: grid;
     width: 100%;
     align-items: center;
@@ -116,37 +110,46 @@
 
 .admin-switch {
     position: sticky;
-    top: calc(100vh - 550px); /* Adjust as needed */
-    border-bottom: none;
-    width: 90%;
-    margin-left: 5%;
-    border-radius: 10px 10px 0 0;
+    border: none;
+    width: 95%;
+    margin-left: 22%;
     height: 40px;
     align-items: center;
     display: flex;
     justify-content: center;
     z-index: 0;
     color: white;
-    background: #ffbd7b2a;
-    box-shadow: 0 0 8px #03441e;
-    transition: top 0.5s ease-in-out;
     cursor: pointer;
 }
 
-.admin-switch:hover {
-    top: calc(100vh - 100%); /* Fully visible */
+.admin-switch-button a {
+    position: relative;
+    color: rgb(22, 22, 237);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
 }
 
+.admin-switch-button a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: rgb(76, 76, 220);
+    transition: width 0.3s ease; 
+}
 
-.admin-switch:hover {
-    z-index: 0; /* Ensure it stays above other elements */
+.admin-switch-button a:hover::after {
+    width: 100%; 
 }
 
 .admin-switch-button {
     border: none;
     background: none;
     cursor: pointer;
-    color: rgb(255, 85, 0);
+    color: rgb(87, 105, 221);
     font-family: 'Poppins';
     font-weight: bolder;
     margin-right: 40px;
@@ -177,7 +180,7 @@
 }
 .input-box{
     border: 2px solid rgba(128, 128, 128, 0.385);
-    border-radius: 40px;
+    border-radius: 10px;
     height:50px;
     align-items: center;
     margin-top: 10px;
@@ -204,7 +207,7 @@
     color: rgba(0, 0, 0, 0.598);
 }
 .input-box:hover{
-    border:2px solid#143668e1;
+    border:2px solid#00000087;
 }
 
   .toggle-password{
@@ -266,7 +269,7 @@
     background:#157368;
     border: none;
     outline: none;
-    border-radius: 40px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     color: rgb(255, 255, 255);
@@ -310,66 +313,3 @@
 .register-link a:hover::after {
     width: 100%; 
 }
-
-@keyframes slideUpDown {
-    0% {
-        transform: translateY(10px);
-        opacity: 1;
-    }
-    40% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    40% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(10px);
-        opacity: 1;
-    }
-}
-
-  
-@keyframes slidedown {
-    0% {
-      transform: translateY(100px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(20px);
-      opacity: 1;
-    }
-  }
-  
-
-
-@media only screen and (max-width: 768px) {
-    
-    .lady{
-        display: none;
-    }
-
-    
-  }
-
-@media only screen and (min-width: 909px) {
-  
-    
-  }
-
-
-
-@media only screen and (max-width: 908px) {
-   
-    .login-nav{
-        display: grid;
-    }
-    .login-nav p{
-        margin-left: 15px;
-        font-family: 'Poppins';
-        font-weight: 600;
-    }
-    
-  }
-  

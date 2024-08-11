@@ -1,9 +1,10 @@
 /* Container for the entire form */
 .app-form{
-  background: linear-gradient(to bottom, rgba(218, 162, 120, 0.573), #d89d6990, #dd955553, #eb905730);
+  background: linear-gradient(to bottom, rgba(128, 218, 120, 0.573), #69d86b90, #57dd5553, #63eb575d);
   background-repeat: no-repeat;
   font-family: 'Poppins';
  height: 100%;
+ padding-bottom: 5%;
 }
 .loan-application-form {
     width: 550px;
@@ -48,9 +49,9 @@
   
   .loan-application-form legend {
     font-size: 18px;
-    color: white;
+    color: black;
     padding: 0 10px;
-    background: linear-gradient(to bottom, rgba(255, 111, 0, 0.573), #eb90577e);
+    background: linear-gradient(to bottom, rgba(47, 255, 0, 0.573), #5eeb577e);
     border-radius: 6px;
   }
   
@@ -103,7 +104,7 @@
     border: none;
     border-radius: 4px;
     color: #fff;
-    background: #007bff;
+    background: #04ff00;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
@@ -113,17 +114,17 @@
   }
   
   .loan-application-form button:hover {
-    background: #0056b3;
+    background: #0d6916;
   }
   
   /* Previous and Next buttons specific styling */
   .loan-application-form button[type="button"] {
-    background: #0058a6;
+    background: #2aa600b4;
     
   }
   
  .loan-application-form button[type="button"]:hover {
-    background: #ff7b00;
+    background: #036b0c;
   } 
   .step-button-split{
     display: flex;

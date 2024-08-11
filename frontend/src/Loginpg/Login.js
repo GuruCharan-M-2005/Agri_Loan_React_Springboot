@@ -131,12 +131,7 @@ const Loginpg = () => {
             </button>
           </div>
         </div>
-        <div className='admin-switch'>
-          <img src='/popupman.png' className='pop-up-man'></img>
-        <button onClick={handleAdminLogin}  className='admin-switch-button'>
-        Switch to Admin Login
-          </button>
-        </div>
+        
         <div className='wrapper-container'>
           <div className="wrapper">
             <form action="" className='form-class'>
@@ -185,13 +180,18 @@ const Loginpg = () => {
                 Login
               </button>
               <div className="register-link">
-                <p>Don't have an account?</p> <a onClick={handlesignup}>Register</a>
+                <p>Don't have an account?</p> <a onClick={handlesignup}>Register Here</a>
               </div>
+              <div className='admin-switch'>
+                <button onClick={handleAdminLogin}  className='admin-switch-button'>
+                 <a>Switch to Admin Login</a>
+                  </button>
+        </div>
             </form>
           </div>
         </div>
       </div>
-      <img src='/working lady.png' className='lady' alt='working lady'></img>
+      {/* <img src='/working lady.png' className='lady' alt='working lady'></img> */}
     </div>
   );
 };

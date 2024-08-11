@@ -95,13 +95,17 @@ const Register = () => {
       setTimeout(() => {
         setShowSuccessImage(false);
         navigate('/user/login');
-      }, 4300);
+      }, 1000);
     } catch (error) {
       console.error('Registration failed:', error.message);
       setMessage('Failed to create account');
       setLoading(false);
     }
   };
+
+  const handlelogin=()=>{
+    navigate('/user/login')
+  }
 
   return (
     <div className='loginnn1'>
@@ -183,15 +187,19 @@ const Register = () => {
             Register
           </button>
 
+          <div className="register-link">
+                <p>Already have an account?</p> <a onClick={handlelogin}>Login Here</a>
+            </div>
+
           {message && <p className="message">{message}</p>}
         </form>
       </div>
       </div>
       
-      {loading && <LoadingScreen />} 
-      {showSuccessImage && <LoadingScreen />} 
+      {/* {loading && <LoadingScreen />} 
+      {showSuccessImage && <LoadingScreen />}  */}
 
-      <img src='working lady.png' className='lady'></img>
+      {/* <img src='working lady.png' className='lady'></img> */}
     </div>
   );
 };

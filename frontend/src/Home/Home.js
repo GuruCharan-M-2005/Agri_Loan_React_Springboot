@@ -8,6 +8,7 @@ import DigitalGoldLoanDetailsCard from './DigitalGoldLoanDetailsCard';
 import AgriCreditCardDetailsCard from './AgriCreditCardDetailsCard';
 import FarmMechanisationLoanDetailsCard from './FarmMechanisationLoanDetailsCard';
 import Contact from '../Contact/Contact.js';
+import Chatbot from './Chatbot.jsx';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,19 +23,6 @@ export default function Home() {
     '/tractor.png'
   ];
 
-  useEffect(() => {
-    if (!hasScrolled) {
-      const timer = setTimeout(() => {
-        window.scrollTo({
-          top: window.innerHeight,
-          behavior: 'smooth'
-        });
-        setHasScrolled(true);
-      }, 5000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [hasScrolled]);
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
@@ -162,8 +150,7 @@ export default function Home() {
         <Navbbar />
         <div className='home-content'>
           <div className='caption'>
-            <div><h1>Empowering Your Agricultural Dreams with <br />Tailored Financial Solutions</h1></div>
-            <div><p>Need fast loan? Try CropCredit for your needs</p></div>
+            <div><h1>Need fast loan? Try CropCredit for your needs</h1></div>
           </div>
           <div className='display-board'>
             <div className='slideshow-container'>
@@ -178,11 +165,10 @@ export default function Home() {
               <button className='prev' onClick={goToPreviousSlide}>&#10094;</button>
               <button className='next' onClick={goToNextSlide}>&#10095;</button>
             </div>
-            <img src='/money1.png' className='money-hand' alt='money hand' />
+            {/* <img src='/money1.png' className='money-hand' alt='money hand' /> */}
           </div>
         </div>
       </div>
-      <div className="separation-line"></div>
       <div className='second-section'>
         <h1>Our Services</h1>
         <div className='bank-options'>
@@ -199,59 +185,8 @@ export default function Home() {
         </div>
       </div>
       {showLoanDetails && renderLoanDetailsCard()}
-      <div className='fourth-section'>
 
-        <div className='fourth-container'>
-        <div className='stats'>
-          <div className='stat-item'>
-            <h2 className='count-stat'>
-              {startCount && <CountUp start={0} end={20} duration={2} />}<span className="plus-sign">+</span>
-            </h2>
-            <p>partner banks</p>
-          </div>
-          <div className='stat-item'>
-            <h2 className='count-stat'>
-              {startCount && <CountUp start={0} end={700000} duration={2} separator=',' />}<span className="plus-sign">+</span>
-            </h2>
-            <p>journeys completed</p>
-          </div>
-          <div className='stat-item'>
-            <h2 className='count-stat'>
-              {startCount && <CountUp start={0} end={74000} duration={2} suffix='cr.' separator=',' />}<span className="plus-sign">+</span>
-            </h2>
-            <p>loans disbursed</p>
-          </div>
-          <div className='stat-item'>
-            <h2 className='count-stat'>
-              {startCount && <CountUp start={0} end={6000} duration={2} separator=',' />}<span className="plus-sign">+</span>
-            </h2>
-            <p>video testimonials</p>
-          </div>
-        </div>
-        <div className='seperationline1'></div>
-        <div className='digital-loan-heading'>
-          <h1>Get digital loan approval in 59 minutes</h1>
-        </div>
-        <div className='loan-features'>
-          <div className='feature1'>
-            <img src='simplest-home.svg' alt='simplest' />
-            <p>simplest</p>
-          </div>
-          <div className='feature1'>
-            <img src='fastest-home.svg' alt='fastest' />
-            <p>fastest</p>
-          </div>
-          <div className='feature1'>
-            <img src='safest-home.svg' alt='safest' />
-            <p>safest</p>
-          </div>
-          <div className='feature1'>
-            <img src='smartest.svg' alt='smartest' />
-            <p>smartest</p>
-          </div>
-        </div>
-        </div>
-      </div>
+
       <div className='third-section'>
         <h1>Rates & Charges</h1>
         <div className='rates-container'>
@@ -276,91 +211,14 @@ export default function Home() {
             <p>Agriculture Infrastructure Fund</p>
           </div>
         </div>
-      </div>
-      <div className='fifth-section'>
-      <div class="logo-container">
-      <h1 id="page-logo">Application process</h1>
-      </div>
-  <div className='flowchart'>
-    <div className='flow-step'>
-      <div className='step-number'>1</div>
-      <div className='step-content'>
-        <h2>Step 1</h2>
-        <p>Login/SignUp</p>
-      </div>
-      <div className='ripple-background'>
-        <div className="circle xxlarge shade1"></div>
-        <div className="circle xlarge shade2"></div>
-        <div className="circle large shade3"></div>
-        <div className="circle medium shade4"></div>
-        <div className="circle small shade5"></div>
-      </div>
-    </div>
-    <div className='flow-step'>
-      <div className='step-number'>2</div>
-      <div className='step-content'>
-        <h2>Step 2</h2>
-        <p>Select Loan</p>
-      </div>
-      <div className='ripple-background'>
-        <div className="circle xxlarge shade1"></div>
-        <div className="circle xlarge shade2"></div>
-        <div className="circle large shade3"></div>
-        <div className="circle medium shade4"></div>
-        <div className="circle small shade5"></div>
-      </div>
-    </div>
-    <div className='flow-step'>
-      <div className='step-number'>3</div>
-      <div className='step-content'>
-        <h2>Step 3</h2>
-        <p>Click Apply</p>
-      </div>
-      <div className='ripple-background'>
-        <div className="circle xxlarge shade1"></div>
-        <div className="circle xlarge shade2"></div>
-        <div className="circle large shade3"></div>
-        <div className="circle medium shade4"></div>
-        <div className="circle small shade5"></div>
-      </div>
-    </div>
-    <div className='flow-step'>
-      <div className='step-number'>4</div>
-      <div className='step-content'>
-        <h2>Step 4</h2>
-        <p>Fill all the details correctly</p>
-      </div>
-      <div className='ripple-background'>
-        <div className="circle xxlarge shade1"></div>
-        <div className="circle xlarge shade2"></div>
-        <div className="circle large shade3"></div>
-        <div className="circle medium shade4"></div>
-        <div className="circle small shade5"></div>
-      </div>
-    </div>
-    <div className='flow-step'>
-      <div className='step-number'>5</div>
-      <div className='step-content'>
-        <h2>Step 5</h2>
-        <p>Click submit and wait for confirmation</p>
-      </div>
-      <div className='ripple-background'>
-        <div className="circle xxlarge shade1"></div>
-        <div className="circle xlarge shade2"></div>
-        <div className="circle large shade3"></div>
-        <div className="circle medium shade4"></div>
-        <div className="circle small shade5"></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div>
+      </div> 
+<div> 
 <section id="contact">
   <Contact/>
   </section>
 
 </div>
-
+          <Chatbot/>
 
       <Footer />
     </div>

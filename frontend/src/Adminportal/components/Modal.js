@@ -69,8 +69,10 @@ const Modal = ({ show, onClose, onStatusChange, application, onRefresh }) => {
         amount: monthlyRepaymentAmount.toFixed(2) 
       };
     });
+
+    console.log(newSchedule);
   
-   /* await axios.put(`http://localhost:8080/data/editDataRepaymentStatus/${application.dataId}/${newSchedule}`)
+   await axios.post(`http://localhost:8080/data/postPayment/${application.dataId}`,newSchedule)
     .then(response => response.json())
     .then(() => {
       setNotification(`Message has been sent to ${application.firstName}`);
@@ -92,7 +94,7 @@ const Modal = ({ show, onClose, onStatusChange, application, onRefresh }) => {
     .catch(() => {
       setNotification('Failed to send message.');
       setTimeout(() => setNotification(''), 3000);
-    });*/
+    });
   };
   
   const handleReject = async(id) => {
