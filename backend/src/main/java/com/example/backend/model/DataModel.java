@@ -3,6 +3,7 @@ package com.example.backend.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -56,4 +57,16 @@ public class DataModel {
     @JoinColumn(name = "data_id")
     private List<RepaymentModel> repaymentModels;
     
+
+    // public void removeRepaymentById(int repaymentId) {
+    //     System.out.println(repaymentId);
+    //     Iterator<RepaymentModel> iterator = repaymentModels.iterator();
+    //     while (iterator.hasNext()) {
+    //         RepaymentModel repayment = iterator.next();
+    //         if (repayment.getId().equals(repaymentId)) {
+    //             iterator.remove();
+    //             return; // Exit after removal
+    //         }
+    //     }
+    // }
 }

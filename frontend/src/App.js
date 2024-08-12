@@ -14,6 +14,8 @@ import LoanApplications from './Adminportal/components/LoanApplications';
 import Users from './Adminportal/components/Users';
 import Contact from './Contact/Contact';
 import RepaymentTracking from './Adminportal/components/RepaymentTracking';
+import Profile from './Home/Profile';
+import LoanTracker from './Home/LoanTracker';
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
           
           <Route path='/user/login' element={<Loginpg />} />
           <Route path='/' element={<Home />} />
+          <Route path='/loantracker' element={<LoanTracker />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/admin/home' element={<Adminportal />} />
           <Route path='/Signup' element={<Register />} />
           <Route path='/Navbar' element={<Navbbar />} />

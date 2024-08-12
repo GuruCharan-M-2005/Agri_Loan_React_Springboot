@@ -6,6 +6,7 @@ import hellobot from './hellobot.json';
 import { useNavigate } from 'react-router-dom';
 import { Send, Activity, Info, LogOut } from 'react-feather';
 import axios from 'axios';
+import Profile from "../Home/Profile";
 
 const defaultOptions = {
   loop: true,
@@ -17,8 +18,9 @@ const defaultOptions = {
 };
 
 const DropdownMenu = ({ isLoggedIn, handleLogin, handleLogout }) => {
-  const [username, setUsername] = useState('');
+  const [user, setUser] = useState([]);
   const [userId, setUserId] = useState(0);
+
   const navigate = useNavigate();
 
   useEffect(  () => {
@@ -30,7 +32,7 @@ const DropdownMenu = ({ isLoggedIn, handleLogin, handleLogout }) => {
           // if (users) {
             if(response.data){
             console.log(response.data)
-            setUsername(response.data.username);
+            setUser(response.data);
             setUserId(response.data.userId)
           }
         })
@@ -39,6 +41,10 @@ const DropdownMenu = ({ isLoggedIn, handleLogin, handleLogout }) => {
         });
     }
   }, [isLoggedIn]);
+
+  const setProfileview=()=>{
+    navigate('/profile')
+  }
 
   const handleMyApplications = () => {
     navigate('/my-applications');
@@ -57,18 +63,20 @@ const DropdownMenu = ({ isLoggedIn, handleLogin, handleLogout }) => {
         <>
           <div className="dropdown-title">
             <div className="hellobot"><Lottie options={defaultOptions} height={50} width={50} /></div>
-            <p>{username}</p>
+            <p>{user.username}</p>
           </div>
           <div className="drop-option">
             <div className="line"></div>
+            <div><button className="drop-buttons" onClick={()=>navigate('/profile')}><Activity className="dropdown-icon" />My Profile</button></div>
             <div><button className="drop-buttons" onClick={handleMyApplications}><Send className="dropdown-icon" /> My Applications</button></div>
-            {/* <div><button className="drop-buttons"><Activity className="dropdown-icon" /> Loan Tracker</button></div>
-            <div><button className="drop-buttons"><Info className="dropdown-icon" /> Help</button></div> */}
+            <div><button className="drop-buttons" onClick={()=>navigate('/loantracker')}><Info className="dropdown-icon" /> Loan Tracker</button></div>
             <div className="line"></div>
           </div>
           <div className="logout-function">
             <button onClick={()=>handleLogoutFunc()} className="logout-buttton"><LogOut className="dropdown-icon" />Logout</button>
           </div>
+
+
         </>
       ) : (
         <button onClick={handleLogin}><TbLogin2 /> Login</button>

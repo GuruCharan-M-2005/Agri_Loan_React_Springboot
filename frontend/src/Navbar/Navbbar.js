@@ -96,6 +96,7 @@ export default function Navbar() {
               </div>
               {showDropdown && (
         <DropdownMenu
+
           username={username}
           isLoggedIn={isLoggedIn}
           handleLogin={handleLogin}

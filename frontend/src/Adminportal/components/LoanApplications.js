@@ -23,6 +23,7 @@ const LoanApplications = () => {
         const response = await axios.get('http://localhost:8080/data/getall');
         setLoanData(response.data);
         setFilteredData(response.data);
+        
         setLoading(false);
       } catch (error) {
         console.error('Error fetching loan data:', error);
@@ -91,7 +92,9 @@ const LoanApplications = () => {
         ));
         setFilteredData(prevData => prevData.map(app =>
           app.id === applicationId ? { ...app, status: newStatus } : app
+
         ));
+        // console.log(loanData)
       }
       else{
 
@@ -122,6 +125,7 @@ const LoanApplications = () => {
       const updatedApplication = response.data;
       setLoanData(prevData => prevData.map(app => app.id === id ? updatedApplication : app));
       setFilteredData(prevData => prevData.map(app => app.id === id ? updatedApplication : app));
+      // console.log(loanData)
     } catch (error) {
       console.error('Error refreshing application:', error);
     }
@@ -160,12 +164,12 @@ const LoanApplications = () => {
           <tbody>
             ${filteredData.map(loan => `
               <tr>
-                <td>${loan.id}</td>
+                <td>${loan.dataId}</td>
                 <td>${loan.firstName} ${loan.lastName}</td>
                 <td>${loan.loanAmount}</td>
                 <td>${loan.loanType}</td>
                 <td>${new Date(loan.submittedAt).toLocaleDateString()}</td>
-                <td>${loan.status}</td>
+                <td>${loan.loanStatus}</td>
               </tr>
             `).join('')}
           </tbody>
@@ -227,7 +231,7 @@ const LoanApplications = () => {
             <tbody>
               {filteredData.map((loan) => (
                 <tr key={loan.id}>
-                  <td>{loan.id}</td>
+                  <td>{loan.dataId}</td>
                   <td>{loan.firstName} {loan.lastName}</td>
                   <td>{loan.loanAmount}</td>
                   <td>{loan.loanType}</td>

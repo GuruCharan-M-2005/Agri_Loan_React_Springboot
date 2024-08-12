@@ -38,7 +38,7 @@ const LoanApplicationForm = () => {
     aadharUpload: null,
     landCertificateUpload: null,
     submittedAt: '', 
-    status: 'Yet to Review', // Default status
+    loanStatus: 'Yet to Review', // Default status
     userId: '' // Add userId field
   });
   const [errors, setErrors] = useState({});
@@ -214,6 +214,7 @@ const LoanApplicationForm = () => {
         authorizeConsent: formData.authorizeConsent,
         agreeStatement: formData.agreeStatement,
         submittedAt: submissionTime,
+        loanStatus:formData.loanStatus,
         user:{
           userId:userId
         }
@@ -269,7 +270,7 @@ const LoanApplicationForm = () => {
         aadharUpload: null,
         landCertificateUpload: null,
         submittedAt: '',
-        status: 'Yet to Review', // Ensure status is set to default
+        loanStatus: "Yet to Review", // Ensure status is set to default
          userId: '',
       });
   

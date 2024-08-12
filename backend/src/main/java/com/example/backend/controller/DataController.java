@@ -1,6 +1,8 @@
 package com.example.backend.controller;
 
 import java.util.List;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -95,4 +97,10 @@ public class DataController {
         }
     }
 
+    @DeleteMapping("/paymentdelete/{dataId}/{repaymentId}")
+    public ResponseEntity<String> deleteData(@PathVariable int dataId,@PathVariable int repaymentId) {
+        System.out.println(dataId+" ******************* "+repaymentId);
+        dataService.deleteRepayment(dataId,repaymentId);
+        return ResponseEntity.ok( UUID.randomUUID().toString());
+    }
 }

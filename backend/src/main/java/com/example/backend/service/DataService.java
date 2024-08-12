@@ -7,6 +7,7 @@ import com.example.backend.model.DataModel;
 import com.example.backend.model.RepaymentModel;
 import com.example.backend.model.UserModel;
 import com.example.backend.repository.DataRepo;
+import com.example.backend.repository.RepaymentRepo;
 import com.example.backend.repository.UserRepo;
 
 @Service
@@ -17,6 +18,9 @@ public class DataService {
 
     @Autowired
     private DataRepo dataRepo;
+
+    @Autowired
+    private RepaymentRepo repaymentRepo;
 
     public List<DataModel> getData(){
         return dataRepo.findAll();
@@ -48,6 +52,9 @@ public class DataService {
             newdata.setRepaymentModels(data);
             return dataRepo.save(newdata);
 
+    }
+    public void deleteRepayment(int dataId,int paymentId) {
+        repaymentRepo.deleteByLoanIdAndRepaymentId(dataId, paymentId);
     }
 
 

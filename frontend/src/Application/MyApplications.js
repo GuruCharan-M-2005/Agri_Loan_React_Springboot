@@ -98,7 +98,7 @@ const MyApplications = () => {
               applications.map((app) => (
                 <div className='application-card' key={app.id}>
                   <div className='loan-icon'>{getLoanTypeIcon(app.loanType)}</div>
-                  <h4>Application Id: {app.id}</h4>
+                  <h4>Application Id: {app.dataId}</h4>
                   <div className='para-bg'><p><strong>Name:</strong> {app.firstName} {app.lastName}</p></div>
                   <div className='para-bg'><p><strong>Loan Type:</strong> {app.loanType}</p></div>
                   <div className='para-bg'><p><strong>Loan Amount:</strong> {app.loanAmount}</p></div>
@@ -107,8 +107,9 @@ const MyApplications = () => {
                   <div><p><strong>Date Applied:</strong> {formatDate(app.submittedAt)}</p></div>
                   <div className='application-button-container'>
                     <button className='delete-button' onClick={() => handleDelete(app.dataId)}>Delete</button>
-                    {getStatusButton(app.status)}
+                    {getStatusButton(app.loanStatus)}
                   </div>
+                  
                 </div>
               ))
             )}

@@ -9,8 +9,12 @@ import AgriCreditCardDetailsCard from './AgriCreditCardDetailsCard';
 import FarmMechanisationLoanDetailsCard from './FarmMechanisationLoanDetailsCard';
 import Contact from '../Contact/Contact.js';
 import Chatbot from './Chatbot.jsx';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import Profile from './Profile.jsx';
 
 export default function Home() {
+
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [startCount, setStartCount] = useState(false);
   const [thirdSectionAnimated, setThirdSectionAnimated] = useState(false);
