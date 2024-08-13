@@ -103,12 +103,22 @@
   width: 100%;
   border-collapse: collapse;
   font-family: 'Poppins';
+  min-height: 80vh;
 }
 
 .loan-application-table td {
   border: 1px solid #ddd;
   padding: 2px;
   text-align: center;
+  max-height: 20px;
+  height: 5vh;
+}
+.loan-application-table tbody tr {
+  border: 1px solid #ddd;
+  padding: 1px;
+  text-align: center;
+  max-height: 20px;
+  height: 5vh;
 }
 
 .loan-application-table th {
@@ -163,17 +173,41 @@
 }
 
 .payment-form button, .payment-details .back-button,
-.payment-button {
+.payment-button ,.view-schedule-btn{
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   background: #5be276;
+  margin: 10px;
   /* color: #fff; */
   cursor: pointer;
 }
 
 .payment-form button:hover, .payment-details .back-button:hover,
-.payment-button:hover {
+.payment-button:hover ,.view-schedule-btn:hover{
   background: #4aad5f;
 }
 
+
+
+
+.repayment-schedule-table {
+  width: 50vw;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.repayment-schedule-table th, .repayment-schedule-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.repayment-schedule-table th {
+  background-color: #004896;
+  color: #ffffff;
+}
+
+.repayment-schedule-table td {
+  background-color: rgba(255, 255, 255, 0.1);
+}

@@ -86,6 +86,10 @@ export default function LoanTracker() {
     const [showPaymentDetails, setShowPaymentDetails] = useState(false);
     const [selectedApplication, setSelectedApplication] = useState([]);
     const [paymentID, setPaymentID] = useState('');
+    const [activeApplication, setActiveApplication] = useState([]);
+
+    const [repaymentView,setRepaymentView]=useState(false);
+
     const [repaymentId,setRepaymentId]=useState(0);
     const [loanId,setLoanId]=useState(0);
 
@@ -133,7 +137,15 @@ export default function LoanTracker() {
     const handleBackToTable = () => {
         setShowPaymentDetails(false);
         setSelectedApplication(null);
+        fetchLoggedInUserId();
     };
+    
+    const cancelPayment=()=>{
+        setShowPaymentDetails(false);
+        setSelectedApplication(null);
+        fetchLoggedInUserId();
+    }
+    
 
     return (
         <>
@@ -154,7 +166,7 @@ export default function LoanTracker() {
                                         <th>Loan Type</th>
                                         <th>Loan Amount</th>
                                         <th>Date Applied</th>
-                                        <th>Repayment Date</th>
+                                        <th>Next Repayment Date</th>
                                         <th>Repayment Amount</th>
                                         <th>Action</th>
                                     </tr>
@@ -176,10 +188,13 @@ export default function LoanTracker() {
                                                 >
                                                     Pay Now
                                                 </button>
+    
+
                                             </td>
                                         </tr>
                                     ))}
                                 </tbody>
+
                             </table>
                         )}
                     </div>
