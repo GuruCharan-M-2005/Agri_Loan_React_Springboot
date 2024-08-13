@@ -21,7 +21,18 @@ responses = {
     1: "Eligibility criteria include having a stable income and owning agricultural land.",
     2: "Interest rates for machinery loans vary based on the type of machinery.",
     3: "Yes, loans are available for organic farming initiatives.",
-    4: "Repayment can be done through monthly installments or as a lump sum."
+    4: "Repayment can be done through monthly installments or as a lump sum.",
+    5: "Crop loans are designed to finance various crop-related expenses, such as seeds, fertilizers, and irrigation.",
+    6: "To apply for a gold loan, visit our website or contact your local bank. Ensure you have your gold and necessary documents ready.",
+    7: "Credit loans offer flexible repayment options and can be used for various purposes, including personal and business needs.",
+    8: "Machinery loans help you purchase or upgrade agricultural machinery. Interest rates vary based on the type of machinery.",
+    9: "You can track your repayment schedule through the loan tracker in your account dashboard. It will show upcoming and past payments.",
+    10: "Your profile information includes your email, username, mobile number, and the date and time of joining.",
+    11: "You can view your current loan applications in the 'My Applications' section, including their status and details.",
+    12: "To edit a user's details, go to the Users tab, select the user, click 'Edit', and update the information. Save the changes when you're done.",
+    13: "To delete a user account, go to the Users tab, select the user you wish to delete, click 'Delete', and confirm the action.",
+    14: "To view all user applications, go to the Application tab where you can see a list of all applications submitted by users.",
+    15: "To see the repayment schedule for all applications, go to the Repayment Schedule tab where you will find a detailed schedule for every application."
 }
 
 def preprocess(text):

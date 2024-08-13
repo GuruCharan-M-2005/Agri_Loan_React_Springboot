@@ -163,10 +163,10 @@ const Users = () => {
               <p className={`status ${getStatusClass(user.status)}`}>
                 {user.status}
               </p>
-              <div className='button-container'>
+              {/*<div className='button-container'>
                 <button className='button-edit'>Edit</button>
                 <button className='button-delete-user' onClick={() => openConfirmModal(user.userId)}>Delete</button>
-              </div>
+              </div>*/}
             </div>
           ))}
         </div>

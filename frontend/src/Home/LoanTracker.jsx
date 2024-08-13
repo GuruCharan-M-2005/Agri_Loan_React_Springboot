@@ -1,80 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-// import Navbar from '../Navbar/Navbbar';
-// import './LoanTracker.css';
-// import axios from 'axios';
-
-// export default function LoanTracker() {
-
-//     const [applications, setApplications] = useState([]);
-//     const fetchLoggedInUserId = async () => {
-//         try {
-//             const response2 = await axios.get(`http://localhost:8080/data/getallbyuser`);
-//             setApplications(response2.data);
-//             console.log(response2.data);
-            
-//           } catch (error) {
-//             console.error('Error fetching logged-in user:', error);
-//           }
-//         };
-        
-//       useEffect(() => {
-//           // fetchLoggedInUserId();
-//           // setTimeout( () => {
-//             fetchLoggedInUserId();
-//         // }, 500);
-//         }, []);
-
-        
-//   return (
-//     <>
-//     <Navbar/>
-//     <div className='loan-applications'>
-//     <br /><br /><br /><br />
-//     <div><h2>Loan Tracker</h2></div>
-//         <div className='loan-application-container'>
-//     <div className='loan-application-library'>
-//         {applications.length === 0 ? (
-//               <p className='loan-no-applications'>No applications submitted yet.</p>
-//             ) : (
-             
-//                 <table className='loan-application-table'>
-//                 <thead>
-//                   <tr>
-//                     <th>Application Id</th>
-//                     <th>Name</th>
-//                     <th>Loan Type</th>
-//                     <th>Loan Amount</th>
-//                     <th>Date Applied</th>
-//                     <th>Repayment Date</th>
-//                     <th>Repayment Amount</th>
-//                   </tr>
-//                 </thead>
-//                 <tbody>
-//                   {applications .filter(app => app.loanStatus === "Approved").map(app => (
-//                     <tr key={app.id}>
-//                       <td>{app.dataId}</td>
-//                       <td>{app.firstName} {app.lastName}</td>
-//                       <td>{app.loanType}</td>
-//                       <td>{app.loanAmount}</td>
-//                       <td>{app.submittedAt}</td>
-//                       <td>{app.repaymentModels[0].date}</td>
-//                       <td>{app.repaymentModels[0].amount}</td>
-//                     </tr>
-//                   ))}
-//                 </tbody>
-//               </table>
-              
-//             )}
-//     </div>
-//     </div>
-//     </div>
-//     </>
-//   )
-// }
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbbar';
 import './LoanTracker.css';
@@ -88,6 +11,7 @@ export default function LoanTracker() {
     const [paymentID, setPaymentID] = useState('');
     const [activeApplication, setActiveApplication] = useState([]);
 
+    const [repaymentModels,setRepaymentModels]=useState([])
     const [repaymentView,setRepaymentView]=useState(false);
 
     const [repaymentId,setRepaymentId]=useState(0);
@@ -141,9 +65,18 @@ export default function LoanTracker() {
     };
     
     const cancelPayment=()=>{
-        setShowPaymentDetails(false);
+        setShowPaymentForm(false)
         setSelectedApplication(null);
         fetchLoggedInUserId();
+    }
+
+    const handleViewRepayment=(app)=>{
+        setRepaymentModels(app.repaymentModels)
+        setRepaymentView(true);
+    }
+    const handleHideSchedule=()=>{
+        setRepaymentModels([])
+        setRepaymentView(false);
     }
     
 
@@ -188,6 +121,12 @@ export default function LoanTracker() {
                                                 >
                                                     Pay Now
                                                 </button>
+                                                <button
+                                                    className='payment-button'
+                                                    onClick={() => handleViewRepayment(app)}
+                                                >
+                                                    View Schedule
+                                                </button>
     
 
                                             </td>
@@ -222,6 +161,7 @@ export default function LoanTracker() {
                                     <input type="text" name="name" required />
                                 </label>
                                 <button type="submit">Submit Payment</button>
+                                <button type="button" onClick={cancelPayment}>Cancel Payment</button>
                             </form>
                         </div>
                     </div>
@@ -235,10 +175,37 @@ export default function LoanTracker() {
                             <p>Amount: {selectedApplication.repaymentModels[0].amount}</p>
                             <p>Date: {new Date().toLocaleDateString()}</p>
                             <p>Payment ID: {paymentID}</p>
-                            <button className='back-button' onClick={handleBackToTable}>Back to Table</button>
+                            <button className='back-button' onClick={handleBackToTable}>Back to Tracker</button>
                         </div>
                     </div>
                 )}
+
+                {repaymentView && (
+                    <div className='repayment-container'>
+                    <button onClick={()=>handleHideSchedule()} className='repayment-close-btn'>X</button>
+                        <table className='repayment-schedule-table'>
+                        <thead>
+                          <tr>
+                            <th>Repayment Date</th>
+                            <th>Repayment Amount</th>
+                            <th>Payment Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {repaymentModels.map((model, index) => (
+                              <tr key={index}>
+                                <td>{model.date}</td>
+                                <td>{model.amount}</td>
+                                <td>{model.paymentStatus ? 'Paid' : 'Not Paid'}</td>
+                              </tr>
+                            ))}
+                        </tbody>
+
+                      </table>
+                      </div>
+
+                    )}
+
             </div>
         </>
     );

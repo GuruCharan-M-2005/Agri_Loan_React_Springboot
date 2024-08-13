@@ -17,19 +17,19 @@ const LoanApplications = () => {
   const [sortDirection, setSortDirection] = useState('asc');
   const [sortColumn, setSortColumn] = useState('');
 
+  const fetchLoanData = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/data/getall');
+      setLoanData(response.data);
+      setFilteredData(response.data);
+      
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching loan data:', error);
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    const fetchLoanData = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/data/getall');
-        setLoanData(response.data);
-        setFilteredData(response.data);
-        
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching loan data:', error);
-        setLoading(false);
-      }
-    };
 
     fetchLoanData();
   }, []);
@@ -85,15 +85,16 @@ const LoanApplications = () => {
         // },
         // body: JSON.stringify({ loanStatus: newStatus }),
       // });
-
+      
       if (response.ok) {
         setLoanData(prevData => prevData.map(app =>
           app.id === applicationId ? { ...app, status: newStatus } : app
         ));
         setFilteredData(prevData => prevData.map(app =>
           app.id === applicationId ? { ...app, status: newStatus } : app
-
+          
         ));
+        fetchLoanData();
         // console.log(loanData)
       }
       else{
@@ -121,6 +122,7 @@ const LoanApplications = () => {
 
   const handleRefresh = async (id) => {
     try {
+      fetchLoanData();
       const response = await axios.get(`http://localhost:8080/data/getbyid/${id}`);
       const updatedApplication = response.data;
       setLoanData(prevData => prevData.map(app => app.id === id ? updatedApplication : app));
