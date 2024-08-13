@@ -89,7 +89,7 @@ const Users = () => {
   };
 
   const getApplicationCount = (userId) => {
-    return applications.filter(app => app.userId === userId).length;
+    return applications.filter(app => app.user.userId === userId).length;
   };
 
   const fetchUserApplications = async (userId) => {
@@ -159,7 +159,7 @@ const Users = () => {
               <p><strong>Email:</strong> {user.email}</p>
               <p><strong>Date Joined:</strong> {new Date(user.dateOfJoining).toLocaleDateString()}</p>
               <p><strong>Time Joined:</strong> {user.timeOfJoining}</p>
-              <p><strong>Applications Submitted:</strong> {getApplicationCount(user.id)}</p>
+              <p><strong>Applications Submitted:</strong> {getApplicationCount(user.userId)}</p>
               <p className={`status ${getStatusClass(user.status)}`}>
                 {user.status}
               </p>
