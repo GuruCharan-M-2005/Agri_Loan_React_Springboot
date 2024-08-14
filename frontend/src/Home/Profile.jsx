@@ -90,7 +90,7 @@ const Profile = () => {
             </table>
           </div>
 
-          <div className="calendar-container">
+          {/*<div className="calendar-container">
             <h2>Daily Login Tracker</h2>
             <div className="calendar">
               {months.map((month, monthIndex) => (
@@ -110,7 +110,7 @@ const Profile = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div>*/}
         </div>
       </div>
     </>

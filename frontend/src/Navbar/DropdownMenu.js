@@ -8,6 +8,7 @@ import { Send, Activity, Info, LogOut } from 'react-feather';
 import axios from 'axios';
 import Profile from "../Home/Profile";
 
+
 const defaultOptions = {
   loop: true,
   autoplay: true,
@@ -20,6 +21,7 @@ const defaultOptions = {
 const DropdownMenu = ({ isLoggedIn, handleLogin, handleLogout }) => {
   const [user, setUser] = useState([]);
   const [userId, setUserId] = useState(0);
+  const [showProfile,setShowProfile]=useState(false)
 
   const navigate = useNavigate();
 
@@ -42,9 +44,9 @@ const DropdownMenu = ({ isLoggedIn, handleLogin, handleLogout }) => {
     }
   }, [isLoggedIn]);
 
-  const setProfileview=()=>{
-    navigate('/profile')
-  }
+  // const setProfileview=()=>{
+  //   navigate('/profile')
+  // }
 
   const handleMyApplications = () => {
     navigate('/my-applications');
@@ -81,6 +83,7 @@ const DropdownMenu = ({ isLoggedIn, handleLogin, handleLogout }) => {
       ) : (
         <button onClick={handleLogin}><TbLogin2 /> Login</button>
       )}
+
     </div>
   );
 };
