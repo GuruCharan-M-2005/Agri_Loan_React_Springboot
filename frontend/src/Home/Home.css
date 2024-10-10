@@ -211,7 +211,7 @@
 
 .third-section {
   padding: 50px;
-  background: url('C:/Users/gurum/Desktop/App_Development_IRC/agri_loan/public/interestbg.png') no-repeat center center;
+  /* background: url('C:/Users/gurum/Desktop/App_Development_IRC/agri_loan/public/interestbg.png') no-repeat center center; */
   background-size: cover;
   background-size: 100vw 300px;
   background-position: top;
