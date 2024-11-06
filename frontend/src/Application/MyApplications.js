@@ -33,9 +33,9 @@ const MyApplications = () => {
     try {
       setTimeout(async () => {
         const response = await axios.delete(`http://localhost:8080/data/${id}`);
-        if (!response.ok) {
-          throw new Error('Network response was not ok.');
-        }
+        // if (!response.ok) {
+        //   throw new Error('Network response was not ok.');
+        // }
         // setApplications(applications.filter(app => app.id !== id));
         fetchLoggedInUserId();
       }, 1000);
